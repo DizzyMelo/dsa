@@ -4,13 +4,17 @@ import java.util.Arrays;
 
 public class QuickSort {
 
-    private static void quickSort(int[] array, int left, int right) {
-        if (left >= right)
-            return;
+    private static void quickSortHelper(int[] array, int left, int right) {
+        if (left < right) {
+            int pivot = pivot(array, left, right);
 
-        int pivot = pivot(array, left, right);
-        quickSort(array, left, pivot - 1);
-        quickSort(array, pivot + 1, right);
+            quickSortHelper(array, left, pivot - 1);
+            quickSortHelper(array, pivot + 1, right);
+        }
+    }
+
+    private static void quickSort(int[] array) {
+        quickSortHelper(array, 0, array.length);
     }
 
     private static int pivot(int[] array, int pivotIndex, int endIndex) {
@@ -34,9 +38,11 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        int[] unsortedArray = new int[] { 4, 6, 1, 7, 3, 2, 5 };
+        int[] array = new int[] { 9, 3, 7, 5, 4, 6, 8, 1 };
 
-        quickSort(unsortedArray, 0, unsortedArray.length);
-        System.out.println(Arrays.toString(unsortedArray));
+        quickSort(array);
+
+        System.out.println(Arrays.toString(array));
+
     }
 }
