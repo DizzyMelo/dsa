@@ -27,6 +27,8 @@ public class QuickSort {
             }
         }
 
+        System.out.println(swapIndex);
+
         swap(array, swapIndex, pivotIndex);
         return swapIndex;
     }
@@ -38,8 +40,8 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        int[] array = new int[] { 9, 3, 7, 5, 4, 6, 8, 1 };
-
+        int[] array = new int[] { 7, 8, 6, 9, 4, 5, 1, 3, 2, 0 };
+        
         quickSort(array);
 
         System.out.println(Arrays.toString(array));
